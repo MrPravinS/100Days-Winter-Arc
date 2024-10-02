@@ -1,0 +1,37 @@
+import {useState,useCallback,useMemo,useEffect} from 'react'
+import './App.css'
+
+function App() {
+ const [score,setScore] =  useState(0);
+
+ useEffect(()=>{
+    console.log("Component display ho gaya! Strting game");
+    
+ },[])
+
+ const squareScore = useMemo(()=>{
+  console.log("Score ka Square Calculate kar rahe hai");
+    return score * score;
+ },[score])
+
+
+ const addScore = useCallback(()=>{
+  setScore(score + 1);
+ },[score])
+
+ const subtractScore = useCallback(()=>{
+  if(score>0){
+    setScore(score-1);
+  }
+ },[score])
+  return (
+    <>
+      <h1>Score:{score}</h1>
+      <h2>Square of score:{squareScore}</h2>
+      <button onClick={addScore}>Add Score</button>
+      <button onClick={subtractScore}>subtract Score</button>
+    </>
+  )
+}
+
+export default App
