@@ -1,0 +1,139 @@
+import {useState} from 'react'
+
+const Counter = () => {
+ const [count,setCount] = useState(0);
+ const handleCounter = ()=>{
+    setCount(count+1)
+ }
+ const Counter = ()=>{
+    setCount(count-1)
+ }
+ 
+  return (
+    <>
+     <h1>Count:{count}</h1>
+     <button onClick={handleCounter}>Increment</button>
+     <button onClick={Counter}>Decrement</button>
+    </>
+  )
+}
+
+export default Counter
+
+
+
+
+import React from 'react'
+import {useState} from 'react'
+
+const Profile = () => {
+
+    const [myName,setMyName] = useState({
+       name:"Pravin",
+       age:21
+    })
+   
+    const [newNameInput,setNewNameInput] = useState('');
+
+    const handleInputChange = (e)=>{
+        setNewNameInput(e.target.value);
+
+
+
+    }
+
+    const upDateName = ()=>{
+        if(newNameInput.trim()){
+            setMyName((prevState)=>({
+                ...prevState,
+                name:newNameInput
+            }))
+            setNewNameInput('')
+        }
+    }
+   
+  return (
+    <div>
+        <h1>{myName.name}</h1>
+        <input type="text" placeholder='enter new name' value={newNameInput} onChange={handleInputChange}/>
+        <button onClick={upDateName}>Change</button>
+ 
+    </div>
+  )
+}
+
+export default Profile
+
+
+
+
+
+
+
+
+import {useState} from 'react'
+
+import React from 'react'
+
+const ToDoList = () => {
+  const [todos,setTodos] = useState([])
+  const [newTodos,setNewTodos] = useState('')
+
+  const handleInput = (e) =>{
+    setNewTodos(e.target.value)
+
+
+  }
+
+  const onSubmit = (e) =>{
+    e.preventDefault();
+    if(newTodos.trim()){
+      setTodos([...todos,newTodos]);
+      setNewTodos('')
+    }
+      
+    }
+  
+  return (
+    <div>
+        <h1>To Do List</h1>
+        <form onSubmit={onSubmit}>
+          <input type="text" value={newTodos} placeholder='Enter your todos' onChange={handleInput}/>
+          <button type='submit'>Add Todos</button>
+        </form>
+        <ol>
+          {todos.map((todo)=>(
+            <li key={Math.random()}>{todo}</li>
+          ))}
+        </ol>
+    </div>
+  )
+}
+
+export default ToDoList
+
+
+
+
+
+
+
+
+
+// import Counter from "./components/Counter"
+import ToDoList from "./components/ToDoList"
+  // import Profile from './components/Profile'
+
+function App() {
+
+  return (
+    <>
+     {/* <Profile/> */}
+      <ToDoList/>
+     {/* <Counter/> */}
+    </>
+  )
+}
+
+export default App
+
