@@ -1,0 +1,93 @@
+import mongoose from "mongoose";
+import Student from '../models/sstdModel.js'
+
+ export const newStudent1 = async () =>{
+    try {
+        const student1 = new Student ({
+            name:"Pravin",
+            age:21,
+            email:"pravin@gmial.com"
+        })
+
+        const result1 = await student1.save();
+        console.log(result1);
+        
+        
+    } catch (error) {
+        console.log("error Ocured",error.message);
+        
+    }
+}
+
+export const newStudent2 = async () => {
+    try {
+        const student2 = new Student ({
+            name:"Ajay",
+            age:23,
+            email:"ajay@gmail.com"
+        })
+        const result2 = await student2.save();
+        console.log(result2);
+        
+    } catch (error) {
+        console.log('Error Occured',error);
+        
+    }
+}
+
+export const newStudent3 = async () => {
+    try {
+        const student3 = new Student({
+            name:"Vijay",
+            age:34,
+            email:"vijay@gmail.com"
+        })
+        const result3 = await student3.save()
+        console.log(result3);
+        
+    } catch (error) {
+        console.log("error Occured",error);
+        
+    }
+}
+
+
+export const getStudent = async () => {
+    try {
+        const students = await Student.find();
+        console.log(students);
+        
+    } catch (error) {
+        console.log("Error Occured",error);
+        
+    }
+}
+
+
+export const updateStudent = async (id) => {
+    try {
+        const updateStudent = await Student.findByIdAndUpdate(
+            id,
+            {age:39},
+            {new:true}
+        )
+        console.log(updateStudent);
+        
+        
+    } catch (error) {
+        
+        console.log("error Occured",error);
+        
+    }
+}
+
+export const deleteStudent = async (id) => {
+    try {
+        const result = await Student.findByIdAndDelete(id)
+        console.log("Student Deleted",result);
+        
+    } catch (error) {
+        console.log("error Occured",error);
+        
+    }
+}
