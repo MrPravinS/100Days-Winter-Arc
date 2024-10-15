@@ -1,0 +1,77 @@
+index.jsMrPravinS
+import mongoose from "mongoose";
+import express from 'express'
+import router from '../routes/router.js'
+
+const app = express();
+
+app.use(express.json());
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect("mongodb://localhost:27017")
+        console.log("MongoDb connected...");
+        
+    } catch (error) {
+        console.log("MongoDB connection failed",error.message);
+        
+    }
+}
+
+connectDB();
+
+
+
+app.use('/students',router)
+
+app.listen(3000,()=>console.log("Server is running on port 3000"))
+
+
+
+
+router.js//
+import express from "express";
+import Student from "../model/Student.js";
+
+const router = express.Router();
+router.post('/',async(req,res)=>{
+    try {
+        const student = new Student(req.body)
+        const savedStudent = await student.save()
+        console.log("create A student");
+        
+        res.status(200).json(savedStudent)
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+})
+
+export default router;
+
+
+
+Student.js
+import mongoose from "mongoose";
+const studentSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
+    age:{
+       type:Number,
+       required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    enrollMentDate:{
+        type:Date,
+        default:Date.now
+    },
+})
+
+
+const Student = mongoose.model("Student",studentSchema)
+export default Student;
