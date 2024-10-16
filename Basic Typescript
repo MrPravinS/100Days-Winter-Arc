@@ -1,0 +1,91 @@
+function greet(firstName:string){
+    console.log("Hello" + firstName);
+    
+}
+greet("Pravin")
+
+
+function sum(a:number,b:number){
+    
+    return a + b;
+}
+const val = sum(1,4)
+console.log(val);
+
+
+function isLegel(age:number){
+    if(age<18){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
+isLegel(12)
+
+interface User{
+    firstName:string;
+    lastName:string;
+    age:number;
+    email?:string   // ? optionaly
+
+}
+
+function isLegel2(user:User){
+    if(user.age>18){
+        return true
+    }else{
+        return false
+    }
+}
+
+function gree2t(user:User){
+    console.log("hi there" + user.firstName);
+    
+}
+
+isLegel2({
+    firstName:"pravin",
+    lastName:"Shegamwar",
+    age:20,
+    // email:
+})
+
+
+
+interface Person{
+    name:string;
+    age:number;
+}
+
+const Person = { 
+    name:"Pravin",
+    age:21,
+}
+console.log(Person.name);
+console.log(Person.age);
+
+
+interface Car{
+    make:string;
+    model:string;
+    year?:number
+}
+
+
+const myCar:Car={
+      make:"Toyota",
+      model:"Hilux"
+}
+
+console.log(myCar.model);
+console.log(myCar.make);
+
+
+
+
+
+
+
+
