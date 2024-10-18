@@ -28,3 +28,102 @@ const doctersSchema = new mongoose.Schema({
 },{timestamps:true})
 
 export const Docter = mongoose.model("Docter",doctersSchema)
+
+
+
+
+
+
+
+
+
+//Hospital Schema//
+import mongoose from "mongoose";
+
+
+const hospitalSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        requred:true
+    },
+    addressLine1:{
+        type:String,
+        requred:true
+    },
+    addressLine2:{
+        type:String,
+        requred:true
+    },
+    city:{
+        type:String,
+        requred:true
+    },
+    pinCode:{
+        type:String,
+        requred:true
+    },
+    specializesIn:{
+        type:String,
+        requred:true
+    }
+},{timestamps:true})
+
+export const Hospital = mongoose.model("Hospital",hospitalSchema)
+
+
+
+
+//Patient Schema//
+
+
+
+import mongoose from "mongoose";
+
+
+const patientsSchema = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    diagnosedWith:{
+        type:String,
+        requred:true
+    },
+    address:{
+        type:String,
+        requred:true
+    },
+    age:{
+        type:Number,requird:true
+    },
+    bloodeGroup:{
+        type:String,
+        requred:true
+    },
+    gender:{
+        type:String,
+        requred:true,
+        enum:["M","F","O"]
+    },
+    admittedIn:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Hospital"
+    },
+
+},{timestamps:true})
+
+export const Patient = mongoose.model("Patient",patientsSchema)
+
+
+
+
+
+//medical report Schema
+
+
+import mongoose from "mongoose";
+
+
+const medicalRecordsSchema = new mongoose.Schema({},{timestamps:true})
+
+export const MedicalRecords = mongoose.model("MedicalRecords",medicalRecordsSchema)
