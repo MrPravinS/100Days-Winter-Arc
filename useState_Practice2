@@ -1,0 +1,113 @@
+import { useState } from 'react'
+import './App.css'
+
+function App(){
+  const [formData,setFormData] = useState({name:'',email:''})
+
+
+  const handleChange = (e) => {
+    const {name,value} = e.target;
+
+    setFormData((prev)=> ({
+      ...prev,
+      [name] : value
+    }))
+  }
+  return(
+
+    <div>
+      <h1>User Data</h1>
+      <form >
+        <label >Name:
+          <input type="text" name='name' placeholder='enter your name' value={formData.name} onChange={handleChange} />
+        </label>
+
+
+        <label >Email:
+          <input type="text" name='email' placeholder='enter your email' value={formData.email} onChange={handleChange} />
+        </label>
+      </form>
+
+      <h1>Entered Data:</h1>
+      <p><strong>Name:</strong>{formData.name}</p>
+      <p><strong>Email:</strong>{formData.email}</p>
+    </div>
+
+  )
+}
+
+
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function App() {
+//  const [isDarkMode,setIsDarkMode] = useState(false)
+
+//  const toggleMode = () => {
+//   setIsDarkMode((isDarkMode)=>!isDarkMode)
+//  }
+
+ 
+  
+
+//   return (
+//     <div style={{backgroundColor:isDarkMode?'#333':'#FFF',
+//       color:isDarkMode?'white':'black',
+//       height:'full',
+//       width:'full'
+//     }}>
+//       <h1>{isDarkMode?'Dark':'Light'}</h1>
+
+//       <button onClick={toggleMode}>Switch to {isDarkMode?'Light':'Dark'}</button>
+//     </div>
+   
+//   )
+// }
+
+// export default App
