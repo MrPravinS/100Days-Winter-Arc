@@ -1,0 +1,95 @@
+import React from 'react'
+
+const Movie = ({name,releaseYear,genre,rating}) => {
+
+  const style ={
+    backgroundColor:rating <= 5 ? 'red':'lightgreen'
+
+  }
+ 
+
+  return (
+    <div style={style}>
+      {/* <h1></h1> */}
+      <h1>{name}</h1>
+      <p>{releaseYear}</p>
+      <p>{genre}</p>
+      <p>{rating}</p>
+    </div>
+  )
+}
+
+export default Movie
+
+
+// import { useState } from 'react'
+// import ProfileCard from './componants/ProfileCard'
+// import Product from './componants/Product'
+// import TodoItem from './componants/TodoItem'
+import Movie from './componants/Movie'
+
+import './App.css'
+import { name } from 'ejs'
+
+
+function App(){
+
+  const movies =[
+    {name:'spiderman',releaseYear:2004, genre:'Adventure', rating:5},
+    {name:'shaktiman',releaseYear:2002, genre:'Adventure', rating:9},
+    {name:' Chota-Bheem',releaseYear:2019, genre:'Adventure', rating:3},
+    {name:'Motu-Patlu',releaseYear:2023, genre:'Adventure', rating:9}
+  ]
+
+
+  return(
+    <div>
+    <h1>Movies List</h1>
+    {movies.map((movie,index)=>(
+      <Movie 
+       key={index}
+       name={movie.name}
+       releaseYear={movie.releaseYear}
+       genre={movie.genre}
+       rating={movie.rating}
+      />
+    ))}
+    </div>
+    
+  )
+
+
+}
+
+
+export default App
+
+
+
+
+// function App() {
+//   // const [count, setCount] = useState(0)
+ 
+
+// const todos = [
+//   {task:'Learning reactjs',status:'done'},
+//   {task:'Making report',status:'done'},
+//   {task:'Learning reactjs',status:'done'},
+//   {task:'Learning reactjs',status:'done'}
+// ]
+
+//   return (
+//     <>
+//     <h1>My Todo List</h1>
+//     {todos.map((todo,index)=>(
+//       <TodoItem  
+//        key={index}
+//        task={todo.task}
+//        status={todo.status}
+//        />
+//     ))}
+//     </>
+//   )
+// }
+
+// export default App
