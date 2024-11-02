@@ -1,0 +1,103 @@
+//let myVar : type = value
+
+// let myName:string =  "PRAVIN"
+// myName = "Ajay"
+// console.log(myName);
+
+
+
+// for number
+// let myNumber : number = 14
+// console.log(myNumber);
+
+
+// // for boolean
+
+// let isHard : boolean = false
+// isHard = true
+// console.log(isHard);
+
+
+// let age : number = 21
+// console.log(age);
+
+// let isAvailible : boolean = true 
+// console.log(isAvailible);
+
+
+// let nname : string = 'Ajay'
+// console.log(nname);
+
+
+// type inference 
+// let myName = 'pravin'
+// console.log(typeof myName);
+
+
+
+// function add(a:number,b:number){
+//     return a + b;
+// }
+
+// console.log(add(2,4));
+
+
+// any type => any type can be any value of variable type like string, number, object,array,
+
+// let myNumber : any = "Pravin"
+// console.log(myNumber);
+
+// myNumber = 24
+// console.log(myNumber);
+
+// myNumber = true
+// console.log(myNumber);
+
+
+// function parameter annotation
+
+// function add(num:number,num2:number){
+//     return num + num2
+// }
+
+//  const res = add(2,3)
+//  console.log(res);
+
+
+// function subtract(a:number,b:number){
+//     return a - b;
+
+// }
+
+// let resSub = subtract(2,5)
+// console.log(resSub);
+ 
+
+// function multiply(a:number,b:number){
+//     return a * b
+// }
+
+// console.log(multiply(3,5));
+
+
+// function division( a:number,b:number){
+//     if(b==0){
+//     console.log('cant divided by zero')
+//     }else{
+//         console.log(a/b);
+        
+//     }
+// }
+// division(4,2);
+
+
+// function return annotaion
+
+function add (e:number,b:number) : number // return value 
+{
+    return e + b
+}
+
+console.log(add(2,4));
+
+
