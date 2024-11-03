@@ -101,3 +101,176 @@ function add (e:number,b:number) : number // return value
 console.log(add(2,4));
 
 
+
+// Arrays type in tsc
+
+// syntax
+
+// let arrayName : types[] = []
+// let arraynamew : Array<Type> = []
+
+// let numbers : number[] = [1,2,3,4,5]
+// console.log(numbers);
+
+// let names : string[] = ['Pravin',"Ajay","Vijay"]
+// console.log(names.map(name => name.toUpperCase()));
+
+// multiDImensional Array
+
+// let multiDI : number[][][] = [[
+//     [1,2,3,4,]
+//     ,[1,2,3,4],
+//     [2,4,6,3]
+// ]]
+// // let res = multiDI.map(nums=> nums)
+// console.log('\n',multiDI);
+
+// let multiDI: number[][][] = [
+//     [
+//       [1, 2, 3, 4],
+//       [1, 2, 3, 4],
+//       [2, 4, 6, 3]
+//     ]
+//   ];
+
+// //   console.log('\n', multiDI);
+
+// multiDI.forEach(subarr=>{
+//     subarr.forEach(row=>{
+
+//         console.log(row);
+//     })
+
+// })
+
+// let myNames : Array<String> = ['pravin','Ajay','Vijay'];
+// console.log(myNames);
+
+//  myNames.forEach(subarr=>{
+//     console.log(subarr);
+
+//  })
+
+// Objects
+
+// let person : {name:string,lastName:string,age:number} = {
+//     name:"Pravin",
+//     lastName:"Shegamwar",
+//     age:21
+// }
+//   console.log(person.name);
+//   console.log(`My name is ${person.name} ${person.lastName} and I am ${person.age} year Old`);
+
+// let user :{username:string; isLoggedIn:boolean} = {
+//   username:"pravin",
+//   isLoggedIn:true
+// }
+
+// console.log(user.username);
+// console.log(user.isLoggedIn);
+
+// type Aliases
+//syntax
+
+// type User = string;
+// let user:User = 'Pravin'
+// console.log(user);
+
+// type aliases with object type
+
+// type Person = {
+//   myname:string;
+//   age:number;
+//   isEmployed:boolean
+// }
+
+// let person:Person = {
+//   myname : "Pravin",
+//   age:21,
+//   isEmployed:true
+// }
+
+// let person2 : Person = {
+//   myname:"Ajay",
+//   age:21,
+//   isEmployed:false
+// }
+// // let {myname,age,isEmployed} = person2
+// console.log(person);
+
+// optinal property  ? add at key with optinal
+
+// type User = {
+//   myName:string;
+//   myAge:number;
+//   isLoggedIn?:boolean
+// }
+
+// let user:User={
+//   myName:"Pravin",
+//   myAge:21,
+//   isLoggedIn:true
+
+// }
+
+// console.log(user);
+
+// readonly property
+//readonly property is a property that can be assigned a value when the object is created, but cannot be modified afterward
+// use the readonly keyword before the property name:
+
+// type Car = {
+//  readonly brand:string;
+//   model:string
+// }
+
+// let car:Car={
+//   brand:'BMW',
+//   model:'BMW M-9'
+// }
+
+// car.brand = "Merc" //error bcs brand is readonly property
+// console.log(car);
+
+
+// Intersection type
+// variable or object of an intersection type must satisfy all the requirements of the combined types.
+// use & operator for intersection
+
+// type a = {a:string}
+// type b = {b:number}
+
+// type combine = a & b
+
+// let example : combine = {
+//   a:"Pravin",
+//   b:343
+// }
+
+// console.log(example);
+
+
+// type Employed = {
+//   name:string;
+//   address:string;
+//   email:string;
+// }
+
+// type EmployedInfo = {
+//   department:string;
+//   income:number
+// }
+
+// type EmlpoyedINFO = Employed & EmployedInfo
+
+// let employed : EmlpoyedINFO = {
+//   name:"Aj",
+//   address:"Nagpur",
+//   email:"emai.com",
+//   department:'sales',
+//   income:50000
+// }
+// console.log(employed);
+
+
+
