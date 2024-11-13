@@ -273,4 +273,91 @@ console.log(add(2,4));
 // console.log(employed);
 
 
+//pick
+
+
+interface User {
+    name:string
+    age:number
+}
+
+function sumOfAge(user1:User,user2:User){
+    return user1.age + user2.age
+}
+
+const age = sumOfAge({name:"Xyz",age:23},{name:"abc",age:32});
+console.log(age);
+
+
+interface User {
+    id:string
+    name:string
+    age:string
+    email:string
+    password:string
+}
+
+type UpdateProps = Pick<User,'name'|'age'|'email'>
+
+function getUser(updatedProps:UpdateProps){
+
+}
+
+type User = {      // pick only specific property from existing type
+    id:string
+    name:string
+    age:number
+    email:string
+}
+
+type UserInfo = Pick<User,"name"|"email">
+const contactInfo : UserInfo = {
+    name:"Pravin",
+    email:"ajgmail.com"
+}
+console.log(contactInfo);
+
+
+type Book = {
+    title:string
+    auther:string
+    year:number
+    genre:string
+}
+
+type Bookverveiw = Pick<Book,"title"|"auther">
+
+const book : Bookverveiw = {
+    title:"Atomic Habit",
+    auther:"James Clear"
+}
+
+console.log(book);
+
+
+type Product = {
+   id:number
+   name:string
+   description:string
+   price:number
+   stock:number
+}
+
+type ProductSummery = Pick<Product,"name"|"price">
+type ProductInventory = Pick<Product,"name"|"stock">
+
+const productSummery : ProductSummery ={
+    name:"Macbook",
+    price:4000000
+}
+
+const productInventory : ProductInventory = {
+    name:"Macbook",
+    stock:2
+}
+console.log(productSummery);
+console.log(productInventory);
+
+
+
 
